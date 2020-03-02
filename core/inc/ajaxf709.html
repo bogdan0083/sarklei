@@ -1,0 +1,6 @@
+Не могу выполнить запросYou have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near '' at line 6<br/>SELECT mod_catalog.id, mod_catalog.name, mod_catalog.anchor, mod_catalog.cover
+  FROM `mod_catalog` 
+  LEFT JOIN `mod_catalog_relations` ON (mod_catalog.id=mod_catalog_relations.item) 
+  WHERE mod_catalog.act='1' AND mod_catalog_relations.rel='' 
+  ORDER BY `id`
+  LIMIT , {"status":2}

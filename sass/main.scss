@@ -1,0 +1,22 @@
+// @TODO: We import extenal libraries with relative path
+// for now to make autocomplete suggestions show up on imported libs
+@import 'functions.scss';
+
+// variables
+@import 'variables.scss';
+
+// external libraries
+// @import '~bootstrap/scss/bootstrap-grid.scss';
+@import '~bootstrap/scss/mixins/breakpoints.scss';
+@import '~bootstrap/scss/mixins.scss';
+@import '~bootstrap/scss/functions.scss';
+@import '~bootstrap/scss/variables.scss';
+
+// mixins
+@import 'mixins/font-face';
+@import 'mixins/burger';
+@import 'mixins/breakpoints';
+@import 'mixins/sprite';
+
+// components
+@import 'components/content.scss';

@@ -1,0 +1,11 @@
+@mixin up($breakpoint) {
+  @include media-breakpoint-up($breakpoint) {
+    @content;
+  }
+}
+
+@mixin down($breakpoint) {
+  @media (max-width: map_get($grid-breakpoints, $breakpoint)) {
+    @content;
+  }
+}
