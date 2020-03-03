@@ -1568,6 +1568,26 @@ footer .bottom .made-by p{
   }
 }
 
+@media (max-width:1200px){
+  .layout-wrapper-flex{
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+  }
+  .layout-wrapper-flex .layout-left{
+    -webkit-box-flex:0;
+        -ms-flex:0 0 270px;
+            flex:0 0 270px;
+    margin-right:20px;
+  }
+}
+
+@media (max-width:768px){
+  .layout-wrapper-flex .layout-left{
+    display:none;
+  }
+}
+
 .layout .wrapper:after,.layout .wrapper:before{
   content:" ";
   display:table;
@@ -1660,12 +1680,19 @@ footer .bottom .made-by p{
   padding:0 15px;
 }
 
-.breadcrumbs a,.breadcrumbs a:after{
+.breadcrumbs a{
   display:inline-block;
+}
+
+@media (max-width:768px){
+  .breadcrumbs a{
+    line-height:1.5;
+  }
 }
 
 .breadcrumbs a:after{
   content:"/";
+  display:inline-block;
   margin-left:4px;
 }
 
@@ -1689,6 +1716,23 @@ footer .bottom .made-by p{
   margin-right:-30px;
 }
 
+@media (max-width:1200px){
+  .catalog-inner .wrapper{
+    padding:0;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -ms-flex-wrap:wrap;
+        flex-wrap:wrap;
+  }
+}
+
+@media (max-width:992px){
+  .catalog-inner .wrapper{
+    margin-right:-15px;
+  }
+}
+
 .catalog-inner .item{
   width:270px;
   height:330px;
@@ -1704,6 +1748,35 @@ footer .bottom .made-by p{
   overflow:hidden;
   -webkit-transition:all .3s;
   transition:all .3s;
+}
+
+@media (max-width:1200px){
+  .catalog-inner .item{
+    -webkit-box-flex:1;
+        -ms-flex:1 0 230px;
+            flex:1 0 230px;
+    padding-bottom:0;
+    height:auto;
+  }
+}
+
+@media (max-width:992px){
+  .catalog-inner .item{
+    margin-right:15px;
+    margin-bottom:7.5px;
+    margin-top:7.5px;
+  }
+}
+
+@media (max-width:1200px){
+  .catalog-inner .item a{
+    display:block;
+  }
+  .catalog-inner .item a img{
+    display:block;
+    max-width:100%;
+    height:auto;
+  }
 }
 
 .catalog-inner .item:hover{
@@ -1728,6 +1801,24 @@ footer .bottom .made-by p{
   border:1px solid #e7e7e7;
 }
 
+@media (max-width:1200px){
+  .catalog-inner .item div{
+    height:auto;
+    min-height:230px;
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack:center;
+        -ms-flex-pack:center;
+            justify-content:center;
+    -webkit-box-align:center;
+        -ms-flex-align:center;
+            align-items:center;
+    overflow:hidden;
+    padding:10px;
+  }
+}
+
 .catalog-inner .item p{
   height:80px;
   margin:0;
@@ -1738,11 +1829,32 @@ footer .bottom .made-by p{
   width:100%;
 }
 
+@media (max-width:1200px){
+  .catalog-inner .item p{
+    display:-webkit-box;
+    display:-ms-flexbox;
+    display:flex;
+    -webkit-box-pack:center;
+        -ms-flex-pack:center;
+            justify-content:center;
+    -webkit-box-align:center;
+        -ms-flex-align:center;
+            align-items:center;
+  }
+}
+
 .catalog-inner .item p span{
   height:100%;
   vertical-align:middle;
   display:table-cell;
   padding:10px 0;
+}
+
+@media (max-width:1200px){
+  .catalog-inner .item p span{
+    display:block;
+    height:auto;
+  }
 }
 
 .catalog-inner .item>.btn{
@@ -1761,6 +1873,12 @@ footer .bottom .made-by p{
   left:20px;
   -webkit-transform:translateY(120px);
   transform:translateY(120px);
+}
+
+@media (max-width:1200px){
+  .catalog-inner .item>.btn{
+    width:calc(100% - 40px);
+  }
 }
 
 .catalog-inner .item>.btn:hover{
@@ -1788,9 +1906,21 @@ footer .bottom .made-by p{
   margin-bottom:14px;
 }
 
+@media (max-width:992px){
+  .full-item h1{
+    font-size:26px;
+  }
+}
+
 .full-item h2{
   color:#1d5f8b;
   margin-bottom:6px;
+}
+
+@media (max-width:992px){
+  .full-item h2{
+    font-size:20px;
+  }
 }
 
 .full-item .top{
@@ -1816,6 +1946,28 @@ footer .bottom .made-by p{
   margin-right:30px;
   text-align:center;
   display:block;
+}
+
+@media (max-width:992px){
+  .full-item .top .img-wrapper{
+    margin-right:20px;
+    width:160px;
+    height:160px;
+    margin-bottom:8px;
+  }
+  .full-item .top .img-wrapper img{
+    max-width:100%;
+    height:100%;
+  }
+}
+
+@media (max-width:576px){
+  .full-item .top .img-wrapper{
+    margin-right:0;
+    margin-bottom:20px;
+    float:none;
+    width:100%;
+  }
 }
 
 .full-item .top .complect{

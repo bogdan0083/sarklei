@@ -62,7 +62,7 @@ $(document).ready(function(e) {
 
     $('a.fancybox').fancybox();
 
-    if ($('#fixed-nav').length) {
+    if ($('#fixed-nav').length && $('.catalog-inner .item').length > 0) {
 
         fixAsideNav();
 
