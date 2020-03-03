@@ -50,8 +50,14 @@ $(document).ready(function(e) {
 
     $('#has-dropdown>a').on('click', function(e) {
         e.preventDefault();
-        $(this).parent().find('.dropdown').toggleClass('open');
-        $(this).parent().toggleClass('active');
+        var $parent = $(this).parent();
+        // if (!$parent.hasClass('active')) {
+        //   $('body').on('click', hideDropdownOnClick);
+        // } else {
+        //   $('body').off('click');
+        // }
+        $parent.find('.dropdown').toggleClass('open');
+        $parent.toggleClass('active');
     });
 
     $('a.fancybox').fancybox();
@@ -88,7 +94,7 @@ $(document).ready(function(e) {
             $('.aside-nav').addClass('sticky');
             isSticky = true;
              console.log('triggered 3');
-        } 
+        }
 
         if ($(window).scrollTop() + 30 < $('.aside-nav').offset().top) {
             $('.aside-nav').removeClass('sticky');
@@ -103,14 +109,14 @@ $(document).ready(function(e) {
             console.log('triggered 5');
         }
     }
-    
-    
+
+
           /* =============== AJAX load for cat page with items ========= */
     var last_event_time = new Date(),
         to_load = 9,
         wrap = $('.catalog-inner .wrapper'),
         ajax_loading = false;
-    $(window).scroll(function(){ 
+    $(window).scroll(function(){
       if (location.pathname!='index.html') {
         if ( ($(window).scrollTop()>300)&&(ajax_loading==false) ) {
           if ($('#last_load').val()>0) {
@@ -118,11 +124,11 @@ $(document).ready(function(e) {
             $('.loader').css("display","block");
             $.get("core/inc/ajaxf709.html?action=getGoods&amp;start="+$('#last_load').val()+'&limit='+to_load+'&location='+location.pathname, function(response){
               response = $.parseJSON(response);
-              
+
               if (response.status==1) {
                 //строим и присоединяем хтмл
                 for (var i in response.items) {
-                  var to_insert_html = 
+                  var to_insert_html =
                     '<div class="item">'+
                         '<a href="'+response.items[i].link+'" class="top">'+
                             '<div><img src="/upload/goods/sm'+response.items[i].cover+'.jpg" alt="'+response.items[i].name+'"></div>'+
@@ -134,7 +140,7 @@ $(document).ready(function(e) {
                 }
                 //записываем сколько мы загрузили
                 $('#last_load').val($('#last_load').val()*1 + response.count*1);
-                
+
                 //скрываем либо удаляем лоадер
                 if (response.count<to_load) {
                   $('.loader').remove();
@@ -142,7 +148,7 @@ $(document).ready(function(e) {
                 }
                 else {
                   $('.loader').css('display','none');
-                }                
+                }
                 ajax_loading = false;
               }
               else {
@@ -159,4 +165,51 @@ $(document).ready(function(e) {
       }
     });
     /* =============== /AJAX load for cat page with items ========= */
+
+    /* =============== Мобильное меню контактов ========= */
+    var $contactMobileLink = $('.js-contact-mobile-link');
+    var $contactMobileMenu = $('.js-contact-mobile-menu');
+    var $closeMenuButton = $('.js-menu-close');
+
+    var contactMenuIsClosed = true;
+
+    $contactMobileLink.on('click', function(e) {
+      e.preventDefault();
+
+      if (contactMenuIsClosed) {
+        $contactMobileMenu.show();
+        setTimeout(function() {
+          $contactMobileMenu.addClass('active');
+        }, 40);
+
+        contactMenuIsClosed = false;
+      } else {
+        $contactMobileMenu.removeClass('active');
+        setTimeout(function() {
+          $contactMobileMenu.hide();
+        }, 300);
+        contactMenuIsClosed = true;
+      }
+    });
+
+    $closeMenuButton.on('click', function(e) {
+      e.preventDefault();
+      $contactMobileMenu.removeClass('active');
+      setTimeout(function() {
+        $contactMobileMenu.hide();
+      }, 300);
+      contactMenuIsClosed = true;
+    });
+
+  /* =============== Мобильное меню контактов ========= */
+  function hideDropdownOnClick(e) {
+    console.log('clicked!');
+    var $target =  $(e.target);
+    var $dropdownParent = $target.parent('.dropdown');
+
+    if ($dropdownParent.length === 0) {
+      $('.dropdown.open').removeClass('open');
+      $('#has-dropown.active').removeClass('active');
+    }
+  }
 });
